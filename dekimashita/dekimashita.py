@@ -1,10 +1,11 @@
-
+import re
 class Dekimashita:
 
     @staticmethod
     def vdict(data, chars):
         """
         Filter dictionary values recursively, ignoring specified characters.
+        Double spaces are replaced with a single space.
 
         Args:
         data (dict or list): Data (dictionary or list containing dictionaries) to filter.
@@ -21,6 +22,7 @@ class Dekimashita:
 
                 elif isinstance(value, str):
                     clear_value = ''.join(char for char in value if char not in chars)
+                    clear_value = ' '.join(clear_value.split())  # Remove double spaces
                     clear_dict[key] = clear_value
 
                 else:
@@ -35,15 +37,15 @@ class Dekimashita:
 
                 elif isinstance(item, str):
                     clear_value = ''.join(char for char in item if char not in chars)
+                    clear_value = ' '.join(clear_value.split())  # Remove double spaces
                     clear_list.append(clear_value)
 
                 else:
                     clear_list.append(item)
 
             return clear_list
-        else:
-            
-            return data
+        else: return data
+
 
     @staticmethod
     def vspace(text: str) -> str:
@@ -70,8 +72,9 @@ class Dekimashita:
         Returns:
         str: Filtered text containing only alphabetic characters.
         """
-        clear = ''.join(char for char in text if char.isalpha())
-        return clear
+        clear_text = ''.join(char for char in text if char.isalpha() or char.isspace())
+        return clear_text
+
     
 
     @staticmethod    
@@ -93,6 +96,7 @@ class Dekimashita:
     def vtext(text: str) -> str:
         """
         Remove non-alphanumeric characters (except a-z, A-Z, 0-9) from text.
+        Double spaces are replaced with a single space.
 
         Args:
         text (str): Input text.
@@ -100,8 +104,10 @@ class Dekimashita:
         Returns:
         str: Filtered text containing only alphanumeric characters.
         """
-        clear = ''.join(char for char in text if char.isalnum())
-        return clear
+        clear_text = re.sub(r'[^a-zA-Z0-9\s]', '', text)
+        
+        clear_text = re.sub(r'\s+', ' ', clear_text)
+        return clear_text
 
 
 
