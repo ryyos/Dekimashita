@@ -1,15 +1,15 @@
 # Dekimashita
 
-![Version](https://img.shields.io/badge/version-0.0.1-green.svg?cacheSeconds=2592000)
+![Version](https://img.shields.io/badge/version-0.0.2-green.svg?cacheSeconds=2592000)
 ![ProjectImage](https://raw.githubusercontent.com/ryyos/ryyos/main/images/Dekimashita/photo_2024-01-31_09-37-59.jpg)
 
 **a library containing a collection of utility functions designed to filter and process text data based on certain criteria. These functions are useful for various text processing tasks, such as removing unwanted characters, extracting specific information, or cleaning input data.**
 
 ## Features ✨
 
-- **Alphabetic** Filtering: Easily filter out non-alphabetic characters from text data.
-- **Numeric** Filtering: Quickly remove non-numeric characters from text strings.
-- **Alphanumeric** Filtering: Filter text to retain only alphanumeric characters, excluding special symbols.
+- **Alphabetic Filtering**: Easily filter out non-alphabetic characters from text data.
+- **Numeric Filtering**: Quickly remove non-numeric characters from text strings.
+- **Alphanumeric Filtering**: Filter text to retain only alphanumeric characters, excluding special symbols.
 - **Customization**: Ability to customize the filtering criteria based on specific requirements.
 - **TextCleaning**: Cleanse input text from unwanted characters to prepare it for further processing or analysis.
 - **Normalization**: Standardize text data by removing irregular characters or symbols
@@ -248,6 +248,41 @@ print('with Dekimashita filter: ' + clear)
 
 without Dekimashita filter: moon                 bea^%$#@utiful isn"t it 30705
 with Dekimashita filter: moon beautiful isnt it 30705
+```
+
+#### 6. Dekimashita.vdir(text, separator)
+
+    """
+    Remove non-alphanumeric characters (except a-z, A-Z, 0-9) from text.
+    Convert all letters to lowercase. Replace spaces with a specified separator.
+    Double separators are replaced with a single separator.
+
+    Args:
+      text (str): Input text.
+      separator (str): Separator to replace spaces (default is '_').
+
+    Returns:
+      str: Filtered and normalized text.
+    """
+
+### sample
+
+```python
+from dekimashita import Dekimashita
+
+text = 'Moon Beautiful Isn"t It'
+
+clear = Dekimashita.vdir(text)
+
+print('without Dekimashita filter: '+ text)
+print('with Dekimashita filter: ' + clear)
+```
+
+```
+# output
+
+without Dekimashita filter: Moon Beautiful Isn"t It
+with Dekimashita filter: moon_beautiful_isnt_it
 ```
 
 ## 🚀Structure

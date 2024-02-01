@@ -108,6 +108,30 @@ class Dekimashita:
         
         clear_text = re.sub(r'\s+', ' ', clear_text)
         return clear_text
+    
+
+    @staticmethod
+    def vdir(text: str, separator: str = '_') -> str:
+        """
+        Remove non-alphanumeric characters (except a-z, A-Z, 0-9) from text.
+        Convert all letters to lowercase. Replace spaces with a specified separator.
+        Double separators are replaced with a single separator.
+
+        Args:
+        text (str): Input text.
+        separator (str): Separator to replace spaces (default is '_').
+
+        Returns:
+        str: Filtered and normalized text.
+        """
+        clear_text = re.sub(r'[^a-zA-Z0-9\s]', '', text)
+        clear_text = clear_text.lower().replace(' ', separator)
+        
+        clear_text = re.sub(f'{re.escape(separator)}+', separator, clear_text)
+
+        return clear_text
+
+
 
 
 
