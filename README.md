@@ -1,6 +1,6 @@
 # Dekimashita
 
-![Version](https://img.shields.io/badge/version-0.0.2-green.svg?cacheSeconds=2592000)
+![Version](https://img.shields.io/badge/version-0.0.3-green.svg?cacheSeconds=2592000)
 ![ProjectImage](https://raw.githubusercontent.com/ryyos/ryyos/main/images/Dekimashita/photo_2024-01-31_09-37-59.jpg)
 
 **a library containing a collection of utility functions designed to filter and process text data based on certain criteria. These functions are useful for various text processing tasks, such as removing unwanted characters, extracting specific information, or cleaning input data.**
