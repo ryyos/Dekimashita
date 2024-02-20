@@ -1,1 +1,0 @@
-from dekimashita.dekimashita import Dekimashita
