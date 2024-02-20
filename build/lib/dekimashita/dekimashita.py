@@ -124,14 +124,11 @@ class Dekimashita:
         Returns:
         str: Filtered and normalized text.
         """
+        clear_text = re.sub(r'[^a-zA-Z0-9\s]', '', text)
+        clear_text = clear_text.lower().replace(' ', separator)
         
-        clear_text = re.sub(r'[^a-zA-Z0-9\s' + re.escape(separator) + r']', '', text)
-        
-        clear_text = clear_text.lower()
-        
-        clear_text = clear_text.replace(' ', separator)
         clear_text = re.sub(f'{re.escape(separator)}+', separator, clear_text)
-        
+
         return clear_text
 
 

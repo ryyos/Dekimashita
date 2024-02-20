@@ -1,0 +1,9 @@
+LICENSE
+README.md
+setup.py
+dekimashita/__init__.py
+dekimashita/dekimashita.py
+dekimashita.egg-info/PKG-INFO
+dekimashita.egg-info/SOURCES.txt
+dekimashita.egg-info/dependency_links.txt
+dekimashita.egg-info/top_level.txt
